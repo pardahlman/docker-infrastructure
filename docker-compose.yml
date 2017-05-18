@@ -21,7 +21,7 @@ services:
     volumes:
       - ./elastic/data:/usr/share/elasticsearch/data
       - ./elastic/logs :/usr/share/elasticsearch/logs
-      - ./elastic/elasticsearch.yml  :/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elastic/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
 
   kibana:
     image: 'library/kibana:5'
