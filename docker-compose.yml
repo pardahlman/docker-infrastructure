@@ -4,12 +4,15 @@ services:
   mongodb:
     image: 'library/mongo:3'
     volumes:
-      - ./mongodb:/var/lib/mongo
+      - mongodata:/data/db:rw
+      - ./mongodb/log:/var/log/mongodb/
     ports:
       - 27017:27017
-    command: mongod --config /var/lib/mongo/mongod.conf
+    command: mongod --logpath /var/log/mongodb/mongod.log
   elasticsearch:
     image: 'library/elasticsearch:5'
+    environment:
+      ES_JAVA_OPTS: "-Xms750m -Xmx750m"
     ports:
       - 9200:9200
       - 9300:9300
@@ -17,8 +20,19 @@ services:
     image: 'library/kibana:5'
     ports:
       - 5601:5601
+    depends_on:
+      - elasticsearch
   rabbitmq:
     image: 'library/rabbitmq:3-management'
     ports:
       - 15672:15672
       - 5672:5672
+    volumes:
+      - rabbitmq:/var/lib/rabbitmq/
+    hostname: docker
+
+volumes:
+  mongodata:
+    external: true
+  rabbitmq:
+    external: true
