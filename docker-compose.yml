@@ -4,9 +4,10 @@ services:
   mongodb:
     image: 'library/mongo:3'
     volumes:
-      - ./mongodb/data:/var/lib/mongo
+      - ./mongodb:/var/lib/mongo
     ports:
       - 27017:27017
+    command: mongod --config /var/lib/mongo/mongod.conf
   elasticsearch:
     image: 'library/elasticsearch:5'
     ports:
