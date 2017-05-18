@@ -1,2 +1,4 @@
 mongodb/db/*
 mongodb/log/*
+elastic/logs/*
+elastic/data/*
