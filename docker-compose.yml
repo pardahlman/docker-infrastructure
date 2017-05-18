@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  mongodb:
+    image: 'library/mongo:3'
+    volumes:
+      - ./mongodb/data:/var/lib/mongo
+    ports:
+      - 27017:27017
+  elasticsearch:
+    image: 'library/elasticsearch:5'
+    ports:
+      - 9200:9200
+      - 9300:9300
+  kibana:
+    image: 'library/kibana:5'
+    ports:
+      - 5601:5601
+  rabbitmq:
+    image: 'library/rabbitmq:3-management'
+    ports:
+      - 15672:15672
+      - 5672:5672
