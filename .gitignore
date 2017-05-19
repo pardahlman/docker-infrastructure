@@ -1,4 +1,4 @@
-mongodb/db/*
+mongodb/dump/*
 mongodb/log/*
 elastic/logs/*
 elastic/data/*
