@@ -12,6 +12,16 @@ services:
       - 27017:27017
     command: mongod --logpath /var/log/mongodb/mongod.log
 
+  mssql:
+    image: microsoft/mssql-server-linux
+    environment:
+      - SA_PASSWORD=yourStrong(!)Password
+      - ACCEPT_EULA=Y
+    volumes:
+      - mssql:/var/opt/mssql/data/
+    ports:
+      - 1433:1433
+
   elasticsearch:
     image: 'library/elasticsearch:5'
     environment:
@@ -44,6 +54,8 @@ services:
 
 volumes:
   mongodata:
+    external: true
+  mssql:
     external: true
   rabbitmq:
     external: true
