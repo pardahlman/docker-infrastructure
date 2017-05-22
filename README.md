@@ -20,3 +20,11 @@ That's it. Services should be up and running on default port:
 * Elastic Search, port 9200 and 9300
 * RabbitMQ port 15672 (mgmt) and 5672
 * MSSQL, port 1433
+
+## Read more
+
+I wrote a [blog post](http://fellowdeveloper.se/2017/05/21/local-setup-in-minutes-with-docker/) about this.
+
+## Feedback
+
+Register an issue!
